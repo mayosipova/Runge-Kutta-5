@@ -50,3 +50,34 @@ int main()
     
     return 0;
 }
+                                      
+                                      
+ #include <iostream>
+
+using namespace std;
+double f_u(double t, double u, double v) { 
+    return v;
+}
+
+double f_v(double t, double u, double v) { 
+    return -u;
+}
+
+int main()
+{
+    double a = 0, b = 10, h = 0.01, n = (b - a) / h, t = 0, y = 0, u = 0, v = 1;
+
+    for (int i = 0; i < n; i++) {
+        
+        u += h * f_u(t, u, v);
+        v += h * f_v(t, u, v);
+
+        t += h;
+        
+        std::cout << u << "\t" << v << std::endl;
+    }
+    
+    return 0;
+}
+
+
